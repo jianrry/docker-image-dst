@@ -17,7 +17,5 @@ services:
         volumes:
             # dst 配置文件夹
             - "./dst/MyDediServer:/root/.klei/DoNotStarveTogether/MyDediServer"
-            # dst 启动脚本
-            - "./dst/dst.sh:/usr/local/bin/dst.sh"
         # 在容器退出时，总是重启容器    
         restart: always     
