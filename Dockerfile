@@ -3,8 +3,8 @@ FROM ubuntu:latest
 
 # Set copyright information
 LABEL maintainer="Jianrry <i@jianrry.com>"
-LABEL version="1.0"
-LABEL releasedate="2023-03-30"
+LABEL version="1.1"
+LABEL releasedate="2023-04-19"
 LABEL website="https://blog.jianrry.com"
 
 # Set environment variable
@@ -29,10 +29,10 @@ RUN mkdir -p $steamcmd_install_dir && \
     ./steamcmd.sh +force_install_dir $dst_install_dir +login anonymous +app_update 343050 validate +quit
 
 # Copy server configuration files
-COPY MyDediServer $dst_save_dir
+COPY ./dst/MyDediServer $dst_save_dir
 
 # Copy shell script
-COPY dst.sh /usr/local/bin/
+COPY ./dst/dst.sh /usr/local/bin/dst.sh
 RUN chmod +x /usr/local/bin/dst.sh
 
 # Expose server port

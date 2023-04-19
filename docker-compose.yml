@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+
+    nginx:
+        # 镜像
+        image: jianrry/dst:latest
+        # 容器名
+        container_name: dst        
+        # 端口
+        ports:
+            - "10889:10889"
+            - "11000-11001:11000-11001"
+            - "27018-27019:27018-27019"
+            - "8768-8769:8768-8769"
+        # 数据卷    
+        volumes:
+            # dst 配置文件夹
+            - "./dst/MyDediServer:/root/.klei/DoNotStarveTogether/MyDediServer"
+            # dst 启动脚本
+            - "./dst/dst.sh:/usr/local/bin/dst.sh"
+        # 在容器退出时，总是重启容器    
+        restart: always     
